@@ -2,135 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(251, 191, 36, 0.12), transparent 18%),
-    radial-gradient(circle at 82% 8%, rgba(56, 189, 248, 0.1), transparent 16%),
-    radial-gradient(circle at 52% 98%, rgba(16, 185, 129, 0.08), transparent 22%),
-    linear-gradient(180deg, #050816 0%, #060816 46%, #030712 100%);
-}
-
-::selection {
-  background: rgba(251, 191, 36, 0.28);
-  color: white;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.section-anchor {
-  scroll-margin-top: 100px;
-}
-
-.premium-border {
-  position: relative;
-}
-
-.premium-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.16),
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.12)
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.glass {
-  background: rgba(8, 12, 24, 0.72);
-  backdrop-filter: blur(16px);
-}
-
-.shadow-glow {
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 24px 70px rgba(0, 0, 0, 0.28);
-}
-
-.bg-radial-premium {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.08), transparent 22%),
-    radial-gradient(circle at 80% 15%, rgba(56, 189, 248, 0.08), transparent 18%),
-    radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.06), transparent 22%);
+  background-color: #0A0B1A;
+  color: #FFFFFF;
 }
 
 .marquee-mask {
-  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-.animate-float {
-  animation: float 7s ease-in-out infinite;
-}
-
-
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-.marquee-mask {
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

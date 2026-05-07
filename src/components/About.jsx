@@ -1,51 +1,75 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import { aboutPoints, brand } from '../data/siteData'
+import { brand } from '../data/siteData'
+
+const words = "We believe in clear, trustworthy communication.".split(' ')
+
+const wordColors = [
+  'text-white',
+  'text-[#FCE300]',
+  'text-white',
+  'text-[#FCE300]',
+  'text-white',
+  'text-white',
+  'text-white',
+]
 
 export default function About() {
+  const reduceMotion = useReducedMotion()
+
   return (
-    <section id="about" className="section-anchor py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <Reveal>
-          <div className="premium-border overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-glow sm:p-8">
-            <SectionHeading
-              eyebrow="About"
-              title={`A serious creative studio based in ${brand.location}.`}
-              description="Kedarnath Advertising & Graphics helps local businesses, political teams, and growing brands communicate with clarity, confidence, and visual strength."
-            />
+    <section id="about" className="py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="About"
+          // title="Local studio, premium output"
+          description={`${brand.name} helps brands and campaigns communicate with clarity.`}
+        />
 
-            <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5">
-              <p className="text-sm uppercase tracking-[0.24em] text-white/35">
-                Studio promise
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base">
-                Clean hierarchy, premium polish, and communication that still feels practical in the real world of banners, posters, mobile screens, and public-facing campaign work.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <div className="premium-border h-full rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-glow sm:p-8">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {aboutPoints.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-white/10 bg-slate-950/60 p-4 text-sm leading-6 text-slate-200"
+        <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-center">
+          {/* Left: word-by-word animated tagline */}
+          <Reveal>
+            <motion.div
+              className="text-3xl font-semibold leading-snug sm:text-4xl lg:text-5xl"
+              initial={reduceMotion ? false : 'hidden'}
+              animate={reduceMotion ? undefined : 'show'}
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.04, delayChildren: 0.1 } },
+              }}
+            >
+              {words.map((word, index) => (
+                <motion.span
+                  key={word + '-' + index}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                  }}
+                  className={`inline-block mr-2 ${wordColors[index % wordColors.length]}`}
                 >
-                  <h3 className="mb-2 text-base font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-300">{item.text}</p>
-                </div>
+                  {word}
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
+          </Reveal>
 
-            <p className="mt-6 text-sm leading-7 text-slate-300 sm:text-base">
-              The studio is built for practical business communication: fast turnaround, trustworthy presentation, and creative work that looks strong on mobile, in print, and in public-facing campaign environments.
-            </p>
-          </div>
-        </Reveal>
+          {/* Right: simple descriptive text */}
+          <Reveal delay={0.15}>
+            <div className="space-y-4">
+              <p className="text-base leading-7 text-white/70 sm:text-lg">
+                We bridge the gap between professional creative work and the real-world needs of
+                businesses, political leaders, and local brands. Every visual is crafted to be
+                understood instantly – on mobile, in print, and in the field.
+              </p>
+              <p className="text-base leading-7 text-white/70 sm:text-lg">
+                Based in Basmath, our studio is built on fast communication, reliable delivery,
+                and a genuine understanding of regional audiences. No jargon, just work that
+                speaks clearly.
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

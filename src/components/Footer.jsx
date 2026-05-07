@@ -2,55 +2,42 @@ import { brand, navItems } from '../data/siteData'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/6 bg-slate-950/80">
+    <footer className="border-t border-white/10 bg-[#0A0B1A]">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[1fr_auto_auto]">
+        <div className="grid gap-8 sm:grid-cols-[1fr_auto_auto]">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-amber-200">
-                K
-              </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1E1A69] text-white font-bold">K</div>
               <div>
-                <p className="text-sm font-semibold text-white">
-                  {brand.name}
-                </p>
-                <p className="text-xs uppercase tracking-[0.26em] text-white/35">
-                  Creative • Printing • Advertising
-                </p>
+                <p className="font-semibold text-white">{brand.name}</p>
+                <p className="text-xs uppercase tracking-widest text-white/40">Creative Studio</p>
               </div>
             </div>
-
-            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
-              Premium creative support for local businesses and political communication in Basmath, Hingoli district, Maharashtra.
+            <p className="mt-4 max-w-md text-sm text-white/50">
+              Premium creative support for businesses & political communication in Basmath.
             </p>
           </div>
-
           <div>
-            <p className="text-sm font-semibold text-white">Quick links</p>
-            <div className="mt-4 grid gap-2 text-sm text-slate-400">
+            <p className="font-semibold text-white">Links</p>
+            <div className="mt-3 flex flex-col gap-2 text-sm text-white/50">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="transition hover:text-white">
+                <a key={item.href} href={item.href} className="hover:text-white">
                   {item.label}
                 </a>
               ))}
             </div>
           </div>
-
           <div>
-            <p className="text-sm font-semibold text-white">Contact</p>
-            <div className="mt-4 space-y-2 text-sm text-slate-400">
+            <p className="font-semibold text-white">Contact</p>
+            <div className="mt-3 space-y-1 text-sm text-white/50">
               <p>{brand.phone}</p>
               <p>{brand.email}</p>
-              <p className="max-w-xs">{brand.location}</p>
+              <p>{brand.location}</p>
             </div>
           </div>
         </div>
-
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/6 pt-6 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {brand.name}. All rights reserved.
-          </p>
-          <p>Built for speed, trust, and future admin-panel integration.</p>
+        <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/30">
+          © {new Date().getFullYear()} {brand.name}. All rights reserved.
         </div>
       </div>
     </footer>

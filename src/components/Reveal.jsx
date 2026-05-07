@@ -1,8 +1,8 @@
+// Reveal.jsx
 import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Reveal({ children, className = '', delay = 0 }) {
   const reduceMotion = useReducedMotion()
-
   return (
     <motion.div
       className={className}
@@ -10,7 +10,6 @@ export default function Reveal({ children, className = '', delay = 0 }) {
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.14 }}
       transition={{ duration: 0.45, ease: 'easeOut', delay }}
-      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
