@@ -1,6 +1,11 @@
 // tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  // ... rest of config
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -10,5 +15,6 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  plugins: [],
 }
