@@ -6,10 +6,11 @@ export default function Reveal({ children, className = '', delay = 0 }) {
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 14 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay }}
+      viewport={{ once: true, amount: 0.14 }}
+      transition={{ duration: 0.45, ease: 'easeOut', delay }}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

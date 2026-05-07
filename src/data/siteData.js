@@ -237,7 +237,7 @@ export const commercialPortfolio = [
     tag: 'Enquiry-driving ad',
     context: 'Advertising visuals built for reach, trust, and enquiry generation.',
     result: 'Balanced layouts that support a premium business image while still pushing action and response.',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80',
+    // image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80',
     images: [travels1, travels2, travels3],
   },
   {
@@ -246,8 +246,8 @@ export const commercialPortfolio = [
     tag: 'High-CTA hierarchy',
     context: 'Professional admission creatives with strong CTA hierarchy and youth appeal.',
     result: 'Clear messaging, warm visual energy, and a structured hierarchy for fast conversion.',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9a2?auto=format&fit=crop&w=1200&q=80',
-    images: [ summerCamp1 ],
+    // image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9a2?auto=format&fit=crop&w=1200&q=80',
+    image: [ summerCamp1 ],
   },
 ]
 

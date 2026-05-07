@@ -1,11 +1,14 @@
+import { useMemo } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import { logoMarks } from '../data/siteData'
 
 export default function LogoMarquee() {
-  const loop = [...logoMarks, ...logoMarks]
+  const reduceMotion = useReducedMotion()
+  const loop = useMemo(() => [...logoMarks, ...logoMarks], [])
 
   return (
-    <section className="section-anchor py-20 sm:py-24 lg:py-28">
+    <section className="section-anchor py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Client logos"
@@ -14,18 +17,25 @@ export default function LogoMarquee() {
           align="center"
         />
 
-        <div className="marquee-mask relative mt-14 overflow-hidden">
-          <div className="flex w-max animate-marquee gap-5">
+        <div className="marquee-mask relative mt-10 overflow-hidden">
+          <motion.div
+            className="flex w-max gap-4 sm:gap-5"
+            animate={reduceMotion ? undefined : { x: ['0%', '-50%'] }}
+            transition={
+              reduceMotion
+                ? undefined
+                : { duration: 26, repeat: Infinity, ease: 'linear' }
+            }
+            style={{ willChange: 'transform' }}
+          >
             {loop.map((item, index) => (
               <div
                 key={`${item.name}-${index}`}
-                className="group relative flex min-w-[240px] items-center gap-4 rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-amber-300/30 hover:bg-white/[0.07]"
+                className="group relative flex w-[240px] shrink-0 items-center gap-4 rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-amber-300/30 hover:bg-white/[0.07] sm:w-[260px] sm:rounded-[1.8rem] sm:p-5"
               >
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-[1.8rem] bg-gradient-to-br from-amber-300/5 via-transparent to-cyan-300/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 rounded-[1.6rem] bg-gradient-to-br from-amber-300/5 via-transparent to-cyan-300/5 opacity-0 transition duration-300 group-hover:opacity-100 sm:rounded-[1.8rem]" />
 
-                {/* Logo */}
-                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl">
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl sm:h-16 sm:w-16">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -34,19 +44,17 @@ export default function LogoMarquee() {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="relative">
-                  <h3 className="text-sm font-semibold text-white">
+                <div className="relative min-w-0">
+                  <h3 className="truncate text-sm font-semibold text-white">
                     {item.name}
                   </h3>
-
                   <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/40">
                     Client Brand Identity
                   </p>
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
