@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, MessageCircle } from 'lucide-react'
 import { brand, navItems } from '../data/siteData'
+import logo from '../assets/brandLogo/kedarnath-brand-logo2.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -18,10 +19,15 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-white/8 bg-slate-950/72 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-amber-300/20 via-white/5 to-cyan-300/10 text-sm font-bold text-amber-100 shadow-[0_20px_40px_rgba(251,191,36,0.12)]">
-            K
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_20px_40px_rgba(251,191,36,0.12)]">
+            <img
+              src={logo}
+              alt={brand.name}
+              className="h-full w-full object-contain p-1.5"
+            />
           </div>
-          <div>
+
+          <div className="hidden sm:block">
             <p className="text-sm font-semibold leading-5 text-white sm:text-base">
               {brand.name}
             </p>
