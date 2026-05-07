@@ -24,7 +24,7 @@ export default function LogoMarquee() {
             transition={
               reduceMotion
                 ? undefined
-                : { duration: 26, repeat: Infinity, ease: 'linear' }
+                : { duration: 30, repeat: Infinity, ease: 'linear' }
             }
             style={{ willChange: 'transform' }}
           >
@@ -40,7 +40,7 @@ export default function LogoMarquee() {
                     src={item.image}
                     alt={item.name}
                     className="h-full w-full object-contain p-2"
-                    loading="lazy"
+                    draggable="false"
                   />
                 </div>
 
