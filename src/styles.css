@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(59,130,246,0.16), transparent 18%),
+    radial-gradient(circle at 80% 0%, rgba(234,179,8,0.15), transparent 16%),
+    radial-gradient(circle at 50% 100%, rgba(16,185,129,0.12), transparent 22%),
+    linear-gradient(180deg, #050816 0%, #060816 45%, #030712 100%);
+}
+
+::selection {
+  background: rgba(251, 191, 36, 0.3);
+  color: white;
+}
+
+.premium-border {
+  position: relative;
+}
+
+.premium-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04), rgba(255,255,255,0.12));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass {
+  background: rgba(8, 12, 24, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.section-anchor {
+  scroll-margin-top: 100px;
+}
